@@ -56,7 +56,8 @@ const removeOne = (num, arr) => {
 };
 
 const removeElements = (arr, callback) => {
-  for (let i = 0; i < arr.length; i++){
+  // for (let i = 0; i < arr.length; i++){
+  for (let i in arr) {
     callback(arr[i], arr);
   }
   return arr;
@@ -120,11 +121,40 @@ Iterate over the array using forEach to determine the output based on several ru
   - Otherwise, add the number to the output array.
 
 Return the resulting output array.
+
+// array manipulation (2 of them here)
+// string/number manipulation
+// modulos
+// control flow
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  const outputArray = []; // new array to put the info i
+  arr.forEach((val, index, arr) => {
+    if(val % 3 === 0){
+      outputArray.push('Fizz');
+    } else if (val % 5) {
+      outputArray.push('Buzz');
+    } else if (val % 3 === 0 && val % 5 === 0){ // TODO: this logic needs to go first
+      outputArray.push('FizzBuzz');
+    } else {
+      outputArray.push(val);
+    }
+  });
+  return outputArray;
 };
+
+const fizzbuzz2 = (arr) => {
+  const outputArray2 = [];
+  arr.forEach((val) => {
+    let string = '';
+
+    if (val % 3 === 0){
+      string += 'Fizz';
+    }
+  })
+}
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
