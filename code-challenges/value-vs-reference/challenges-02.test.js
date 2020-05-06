@@ -7,11 +7,15 @@ CHALLENGE 1
 Write a function that appends **concatenates** ' The end.' to a string, and returns the modified string. The original source string should not be modified.
 
 ------------------------------------------------------------------------------------------------ */
+// 'old way'
+// const appendTheEnd = (str) => {
+//   let newString = str + ' The end.';
+//   return newString;
+// };
 
-const appendTheEnd = (str) => {
-  let newString = str + ' The end.';
-  return newString;
-};
+
+// one line arrow function has an implied return | backticks are making it a template literal
+const appendTheEnd = (str) => `${str} The end.`;
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -26,10 +30,12 @@ appendFirstToLast(a);
 console.log(a) prints [1, 2, 3, 1]
 ------------------------------------------------------------------------------------------------ */
 
-const appendFirstToLast = (arr) => {
-  let firstAlsoLastElement = arr[0];
-  arr.push(firstAlsoLastElement);
-};
+// const appendFirstToLast = (arr) => {
+//   let firstAlsoLastElement = arr[0];
+//   arr.push(firstAlsoLastElement);
+// };
+
+const appendFirstToLast = (arr) => arr.push(arr[0]);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
