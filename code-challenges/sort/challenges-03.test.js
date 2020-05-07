@@ -96,7 +96,7 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  arr.sort((left, right) => {
+  arr.sort((left, right) => { // compares 'adjacent' values - code way of saying it :)
     if(left.price < right.price) {
       return -1;
     } else if (left.price > right.price) {
@@ -217,8 +217,30 @@ const meetings = [
   new Meeting('Friday', '1200', '1345'),
 ];
 
+const dayOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']; // Riskier !
+
+const dayOrderObj = { // Safer!
+  'Monday' : 0,
+  'Tuesday' : 1,
+  'Wednesday' : 2,
+  'Thursday' : 3,
+  'Friday' : 4,
+};
+
 const sortMeetingsByDay = (arr) => {
-  
+  arr.sort((day1, day2) => {
+    const day1Idx = dayOrder.indexOf(day1.dayOfWeek); //dayOrderOjb[day1.dayOfWeek];
+    const day2Idx = dayOrder.indexOf(day2.dayOfWeek); //dayOrderOjb[day2.dayOfWeek];
+
+    if (day1Idx < day2Idx) {
+      return -1;
+    } else if ( day1Idx > day2Idx) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -232,7 +254,31 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
-  // Solution code here...
+  arr.sort((day1, day2) => {
+    const day1Idx = dayOrder.indexOf(day1.dayOfWeek); //dayOrderOjb[day1.dayOfWeek];
+    const day2Idx = dayOrder.indexOf(day2.dayOfWeek); //dayOrderOjb[day2.dayOfWeek];
+
+    if (day1Idx < day2Idx) { // checks the day of week
+      return -1;
+    } else if ( day1Idx > day2Idx) {
+      return 1;
+    } else {
+      if (day1.start < day2.start) { // this is the same day of week! so now compares start times
+        return -1;
+      } else if (day1.start > day2.start) {
+        return 1;
+      } else {
+        if (day1.end < day2.end) { // this is the same day of the week and same start time, so now compares end times
+          return -1;
+        } else if (day1.end > day2.end) {
+          return 1;
+        } else {
+          return 0; // this would be all three checks are equal
+        }
+      }
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -351,7 +397,7 @@ describe('Testing challenge 9', () => {
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should sort meetings by when they happen', () => {
     expect(sortSchedule(meetings)).toStrictEqual([
       new Meeting('Monday', '0900', '0945'),
