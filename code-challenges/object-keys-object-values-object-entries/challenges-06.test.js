@@ -10,7 +10,7 @@ CHALLENGE 1 - Review
 
 Use the characters data below for all of the challenges except challenge 2.
 
-Write a function named templatingWithMustache that uses mustache to create the markup templates for each of the characters. Use the snippet as your guide for creating your templates. Return an array of template strings. Note: this function does not need to actually append the markup to the DOM. 
+Write a function named templatingWithMustache that uses mustache to create the markup templates for each of the characters. Use the snippet as your guide for creating your templates. Return an array of template strings. Note: this function does not need to actually append the markup to the DOM.
 
 ------------------------------------------------------------------------------------------------ */
 let characters = [
@@ -65,7 +65,7 @@ let $ = createSnippetWithJQuery(`
 * {{.}}
 {{/children}}
 <p> {{ house }} </p>
-`)
+`);
 
 const templatingWithMustache = () => {
   const arr = [];
@@ -130,14 +130,19 @@ const hasChildrenValues = (arr, character) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal - use entried instead of values
 
-Write a function named hasChildrenEntries that is similar to your hasChildrenValues function from challenge 3, but uses the data's entries instead of its values.
+Write a function named hasChildrenEntries that is similar to your hasChildrenValues function from challenge 3(4???), but uses the data's entries instead of its values.
 
 The input and output of this function are the same as the input and output from challenge 3.
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
   let result = false;
-
+  const entries = Object.entries(arr);
+  entries.forEach(current => {
+    // console.log(current[1].children[0]);  // .entries are burried one level deeper than .values
+    if(current[1].name === character && current[1].children[0]) result = true;
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -147,7 +152,17 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  let total = 0;
+  const entries = Object.entries(arr);
+  entries.forEach(current => {
+    if (current[1].spouse) {
+      // console.log(`In spouse logic ${total}`); !! From this, I learned that *Once agaiN!* it was concatentating the numbers into a string, rather than adding them up like numbers... so... I added 2 (one for spouse and one for self)... in the else statement, added 1 for self.
+      total += (current[1].children.length + 2); //TODO: How to do this with parseInt or something rather than hard code?
+    } else {
+      total += current[1].children.length + 1;
+    }
+  });
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -162,7 +177,24 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
-  // Solution code here...
+  const values = Object.values(arr);
+  values.forEach(current => {
+    if (current.spouse) {
+      const nonKids = 2;
+      const houseInfo = {
+        house: current.house,
+        members: current.children.length + nonKids,
+      };
+      sizes.push(houseInfo);
+    } else {
+      const nonKids = 1;
+      const houseInfo = {
+        house: current.house,
+        members: current.children.length + nonKids,
+      };
+      sizes.push(houseInfo);
+    }
+  });
   return sizes;
 };
 
@@ -186,7 +218,26 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
   const survivors = [];
-  // Solution code here...
+  const values = Object.values(arr);
+
+  values.forEach(current => {
+    if (current.spouse === deceasedSpouses) { // I had expected this would need to be !==, but it's === ...why????
+      // console.log(current);  also, why does nothing come out of this console.log??
+      const nonKids = 2;
+      const houseInfo = {
+        house: current.house,
+        members: current.children.length + nonKids,
+      };
+      survivors.push(houseInfo);
+    } else {
+      const nonKids = 1;
+      const houseInfo = {
+        house: current.house,
+        members: current.children.length + nonKids,
+      };
+      survivors.push(houseInfo);
+    }
+  });
   return survivors;
 };
 
@@ -252,8 +303,8 @@ xdescribe('Testing challenge 1', () => {
     <h2> Jon S. </h2>
     <h3>  </h3>
     <p> Snow </p>
-  `])
-  })
+  `]);
+  });
 });
 
 describe('Testing challenge 2', () => {
@@ -279,7 +330,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return true for characters that have children', () => {
     expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
   });
@@ -289,20 +340,20 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return the number of characters in the array', () => {
     expect(totalCharacters(characters)).toStrictEqual(26);
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return an object for each house containing the name and size', () => {
     expect(houseSize(characters)).toStrictEqual([{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, { house: 'Lannister', members: 5 }, { house: 'Targaryen', members: 5 }, { house: 'Tyrell', members: 4 }, { house: 'Greyjoy', members: 1 }, { house: 'Snow', members: 1 }]);
     expect(houseSize(characters).length).toStrictEqual(7);
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should not include any deceased spouses', () => {
     expect(houseSurvivors(characters)).toStrictEqual([{ house: 'Stark', members: 6 }, { house: 'Arryn', members: 2 }, { house: 'Lannister', members: 4 }, { house: 'Targaryen', members: 4 }, { house: 'Tyrell', members: 3 }, { house: 'Greyjoy', members: 1 }, { house: 'Snow', members: 1 }]);
   });
@@ -310,4 +361,4 @@ xdescribe('Testing challenge 8', () => {
 
 function createSnippetWithJQuery(html){
   return cheerio.load(html);
-};
+}
