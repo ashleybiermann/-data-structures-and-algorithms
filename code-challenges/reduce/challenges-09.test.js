@@ -187,8 +187,7 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  let counter = arr.reduce((accum) => accum + 1, 0);
-  return counter;
+  return arr.reduce((accum) => accum + 1, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -248,8 +247,8 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  let nameArray = [];
-  nameArray.push(arr[0].name);
+  return arr.map(current => current.name);
+  //FIXME: but arr.reduce only gives ones name... not all of them... it REDUCES...?? how to use it? map works easier...
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -260,8 +259,9 @@ Write a function named reversedString that takes in a string and returns a strin
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
 
-const reversedString = (str) => {
-  // Solution code here...
+const reversedString = (str) => { //TODO: eek, not sure what to do here
+  const stringArr = str.split('');
+  return stringArr.reduce((accum, current) => current); // returns "1"
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -314,7 +314,7 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  return arr.filter(current => current.children).reduce((accum, current) => (current.children.length + accum), 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -326,7 +326,7 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+  return arr.reduce((accum, current) => (current + accum) ,0)/arr.length;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -345,9 +345,10 @@ const isPrime = (value) => {
   }
   return value > 1;
 };
-
+//TODO: learn if this is right... or just a way to break the test ... how is this even working?
 const countPrimeNumbers = (arr) => {
-  // Solution code here...
+  let total = 1;
+  return arr.filter(current => isPrime(current)).reduce((accum, current) => total++, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -390,7 +391,7 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  return arr.filter(current => current.stat.name === statName).reduce((accum, current) => current, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -404,7 +405,8 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------ */
 
 const extractChildren = (arr) => {
-  // Solution code here...
+  return arr.filter(current => current.name.includes('a') && current.children)
+    .reduce((accum, current) => current.children); // returns all but those from the final obj
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -464,37 +466,37 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return the string with the characters in reverse order', () => {
     expect(reversedString('Code 301')).toStrictEqual('103 edoC');
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return the total number of children', () => {
     expect(countNumberOfChildren(characters)).toStrictEqual(14);
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return the average of the numbers in the array', () => {
     expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85 ])).toStrictEqual(64);
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return a count of the prime numbers in the array', () => {
     expect(countPrimeNumbers([1, 2, 13, 64, 45, 56, 17, 8])).toStrictEqual(3);
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should return any stats that match the input', () => {
     expect(extractStat('speed', snorlaxData.stats)).toStrictEqual({ stat: { url: 'https://pokeapi.co/api/v2/stat/6/', name: 'speed' }, effort: 5, baseStat: 30 });
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should return an array containing the names of the children', () => {
     expect(extractChildren(characters)).toStrictEqual([ 'Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras' ]);
     expect(extractChildren(characters).length).toStrictEqual(10);
