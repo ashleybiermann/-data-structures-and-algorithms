@@ -91,9 +91,18 @@ Here is sample data for the 9:00 sales: { sales: '88 cookies', time: '9 a.m.' }.
 
 Write a function named salesData that uses forEach to iterate over the hourlySales array and create an object for each hour. Return an array of the formatted data.
 ------------------------------------------------------------------------------------------------ */
-
+//TODO: Hoooow!!!?!??
 const salesData = (hours, data) => {
-  // Solution code here...
+  const hourlyData = [];
+
+  hours.forEach(hour => {
+    var result = new Object();
+    for (let i = 0; i < data.length; i++) {
+      result[data[i]] = hour;
+    }
+    hourlyData.push(result);
+  });
+  // return hourlyData;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -118,7 +127,8 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  return arr.filter(current => current.store === 'Pet store')
+    .map(current => current.items[1].quantity).reduce((acc, current) => current);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -260,7 +270,7 @@ xdescribe('Testing challenge 3', () => {
 });
 
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return the number 24', () => {
     expect(howManyTreats(errands)).toStrictEqual(24);
   });
@@ -285,7 +295,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should multiply all the numbers together', () => {
     expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
   });
