@@ -39,6 +39,24 @@ class LinkedList {
 		return queryExists;
 	}
 	
+	toString() {
+		// takes in no args and returns a string representing all values in the linked list
+		let current = this.head;
+		
+		let string = ''; 
+		
+		while(current) {
+			string += ` { ${current.value} } -> `;
+			
+			// console.log(current.value);
+			current = current.next; 
+		}
+		
+		string += 'NULL';
+		console.log(string);
+		
+		return string;
+	}
 }
 
 class Node {
@@ -57,11 +75,16 @@ const three = new Node(3);
 linkedList.head = myFirstNode;
 linkedList.head.next = two;
 linkedList.head.next.next = three;
+
 linkedList.insert('added this one!');
+linkedList.insert('Ashley 2');
 linkedList.insert('another!');
 linkedList.insert('so much fun, weeeeeee');
+
 linkedList.includes('Ashley');
 
 linkedList.traverse();
 
-// resource https://codeburst.io/js-data-structures-linked-list-3ed4d63e6571 
+linkedList.toString();
+
+// resource for includes() method: https://codeburst.io/js-data-structures-linked-list-3ed4d63e6571 
