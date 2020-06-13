@@ -23,6 +23,22 @@ class LinkedList {
 		return this;
 	}
 	
+	includes(query) {
+		// accepts a value, checks to see if it exists as the value of any node in the list, and returns a boolean
+		let queryExists = false;
+		
+		let current = this.head; 
+		
+		while(current) {
+			if (query === current.value) {
+				queryExists = true;
+			}
+			current = current.next;  
+		}
+		console.log(queryExists);
+		return queryExists;
+	}
+	
 }
 
 class Node {
@@ -42,5 +58,10 @@ linkedList.head = myFirstNode;
 linkedList.head.next = two;
 linkedList.head.next.next = three;
 linkedList.insert('added this one!');
+linkedList.insert('another!');
+linkedList.insert('so much fun, weeeeeee');
+linkedList.includes('Ashley');
 
 linkedList.traverse();
+
+// resource https://codeburst.io/js-data-structures-linked-list-3ed4d63e6571 
