@@ -125,10 +125,6 @@ linkedList.append('add to the end please');
 linkedList.traverse();
 linkedList.toString();
 
-const testList = new LinkedList();
-testList.insert('beginning');
-console.log(testList);
-
 module.exports = LinkedList;
 
 // resource for includes() method: https://codeburst.io/js-data-structures-linked-list-3ed4d63e6571 
