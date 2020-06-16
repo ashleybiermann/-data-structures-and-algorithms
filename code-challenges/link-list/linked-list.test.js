@@ -39,12 +39,6 @@ describe('Testing linked-list challenges 06', () => {
   });
 });
 
-// 2 Can successfully add multiple nodes to the end of a linked list
-// 3 Can successfully insert a node before a node located i the middle of a linked list
-// Can successfully insert a node before the first node of a linked list
-// 4 Can successfully insert after a node in the middle of the linked list
-// 5 Can successfully insert a node after the last node of the linked list
-
 describe('Testing linked-list challenges 07', () => {
   it('Should add a node at the end of the list', () => {
     const testList = new LinkedList();
@@ -61,4 +55,17 @@ describe('Testing linked-list challenges 07', () => {
     'next': { 'next': null, 'value': 'the end'}, 'value': 'the fake end' }, 'value': 'beginning'}});
   });
 
+  it('Should insert a value before a target node', () => {
+    const testList = new LinkedList();
+    testList.insert('beginning');
+    testList.append('the end');
+    expect(testList.insertBefore('the end', 'middle')).toEqual({'head': {'next': {'next': {'next': null, 'value': 'the end'}, 'value': 'middle'}, 'value': 'beginning'}});
+  });
+
+  it('Should insert a value after a target node', () => {
+    const testList = new LinkedList();
+    testList.insert('beginning');
+    testList.append('the end');
+    expect(testList.insertAfter('beginning', 'middle')).toEqual({'head': {'next': {'next': {'next': null, 'value': 'the end'}, 'value': 'middle'}, 'value': 'beginning'}});
+  });
 });
