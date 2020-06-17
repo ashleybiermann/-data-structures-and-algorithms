@@ -14,11 +14,13 @@ class LinkedList {
 
 	traverse() {
 		let current = this.head;   // this will be a node eventually
-
+		let counter = 0;
 		while (current) {
+			counter++;
 			console.log(current.value);
 			current = current.next;
 		}
+		return counter;
 	}
 
 	insert(value) {
@@ -27,7 +29,6 @@ class LinkedList {
 		this.head = newNode;
 		return this;
 	}
-// .insertBefore(value, newVal) which add a new node with the given newValue immediately before the first value node
 
 	insertBefore(value, newVal) {
 		const newNode = new Node(newVal);
@@ -91,7 +92,7 @@ class LinkedList {
 
 	toString() {
 		let current = this.head;
-		let string = '';
+		let string = 'head -> ';
 
 		while (current) {
 			string += ` { ${current.value} } -> `;
@@ -99,8 +100,24 @@ class LinkedList {
 			current = current.next;
 		}
 		string += 'NULL';
-
+		console.log(string);
 		return string;
+	}
+
+	kntFromTheEnd(k) {
+		let current = this.head;
+		let a = this.traverse() - k; // destination 
+		let b = a - 1;
+		let i = 0; // counter to get us there
+
+		while (current) {
+			if (b === i) {
+				return current.value;
+			}
+			i++;
+			current = current.next;
+		}
+		return 'Exception';
 	}
 }
 
@@ -109,22 +126,28 @@ const myFirstNode = new Node('Ashley');
 const two = new Node(2);
 const three = new Node(3);
 
-linkedList.head = myFirstNode;
-linkedList.head.next = two;
-linkedList.head.next.next = three;
+// linkedList.head = myFirstNode;
+// linkedList.head.next = two;
+// linkedList.head.next.next = three;
 
-linkedList.insert('added this one!');
-linkedList.insert('Ashley 2');
-linkedList.insert('another!');
-linkedList.insert('this is the beginning');
+linkedList.insert('2');
+linkedList.insert('8');
+linkedList.insert('3');
+linkedList.insert('1');
 
-linkedList.includes('Ashley');
-linkedList.insertBefore('Ashley', 'insert before Ashley');
-linkedList.insertAfter('Ashley', 'inserted after Ashley');
-linkedList.append('add to the end please');
-linkedList.traverse();
+// linkedList.includes('Ashley');
+// linkedList.insertBefore('Ashley', 'insert before Ashley');
+// linkedList.insertAfter('Ashley', 'inserted after Ashley');
+// linkedList.append('add to the end please');
 linkedList.toString();
+linkedList.traverse();
+
+console.log(linkedList.kntFromTheEnd('2'));
 
 module.exports = LinkedList;
 
+// CITATIONS
+// Garhett helped me a lot with knthFromTheEnd function logic
+// Marlene helped me understand how the console logs vs returns worked in knthFromTheEnd
 // resource for includes() method: https://codeburst.io/js-data-structures-linked-list-3ed4d63e6571 
+
