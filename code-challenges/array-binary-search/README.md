@@ -1,4 +1,4 @@
-# ??? Code Challenge(s) ('the folder')
+# Array Binary Search
 
 ##  Name of individual code challenge type ('the file')
 
