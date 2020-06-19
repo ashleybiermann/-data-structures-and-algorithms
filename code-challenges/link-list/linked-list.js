@@ -150,4 +150,3 @@ module.exports = LinkedList;
 // Garhett helped me a lot with knthFromTheEnd function logic
 // Marlene helped me understand how the console logs vs returns worked in knthFromTheEnd
 // resource for includes() method: https://codeburst.io/js-data-structures-linked-list-3ed4d63e6571 
-
