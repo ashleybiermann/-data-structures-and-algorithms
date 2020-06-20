@@ -1,10 +1,10 @@
 'use strict';
 
 class Node {
-	constructor(value) {
-		this.value = value;
-		this.next = null;
-	}
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
 }
 
 class Stack {
@@ -28,12 +28,26 @@ class Stack {
     if (this.top) {
       return this.top.value;
     } else {
-      return 'no stack exists';
+      return 'stack is empty';
     }
   }
 
   isEmpty() {
     return (this.top === null);
+  }
+
+  toString() {
+
+    let current = this.top;
+    let string = 'top -> ';
+
+    while (current) {
+      string += `[${current.value}] -> `;
+      current = current.next;
+    }
+    string += 'bottom';
+    console.log(string);
+    return string;
   }
 }
 
@@ -47,46 +61,56 @@ class Queue {
     const node = new Node(value);
     if (this.front === null) {
       this.front = node;
-    } else {      
+    } else {
       this.rear.next = node;
     }
     this.rear = node;
   }
-
   dequeue() {
-    const value = this.front.value;
-    this.front = this.front.next;
-    return value;
+    if(this.front) {
+      const value = this.front.value;
+      this.front = this.front.next;
+      return value;
+    } else {
+      return 'no nodes to dequeue';
+    }
   }
 
   peek() {
     if (this.front) {
-      return this.top.value;
+      return this.front.value;
     } else {
-      return 'no queue exists';
+      return 'queue is empty';
     }
   }
 
   isEmpty() {
     return (this.front === null);
   }
+
+  toString() {
+    let current = this.front;
+    let string = 'front ->';
+
+    while (current) {
+      string += ` [${current.value}] `;
+      current = current.next;
+    }
+    string += '<- rear'; 
+    console.log(string)
+    return string;
+  }
+
+  length() {
+    let current = this.front;
+    let counter = 0;
+    while (current) {
+      counter++;
+      current = current.next;
+    }
+    return counter;
+  }
 }
-
-const oneStack = new Stack();
-oneStack.push('friday!');
-oneStack.push('thursday');
-oneStack.push('Wednesday');
-oneStack.push('Tuesday');
-oneStack.push('monday');
-
-const oneQueue = new Queue();
-oneQueue.enqueue('1');
-oneQueue.enqueue('2');
-oneQueue.enqueue('3');
-oneQueue.dequeue();
-
-// console.log(oneQueue);
-console.log(oneStack.peek());
 
 module.exports = {
   Stack,
