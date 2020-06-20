@@ -92,11 +92,10 @@ class LinkedList {
 
 	toString() {
 		let current = this.head;
-		let string = 'head -> ';
+		let string = 'head ->';
 
 		while (current) {
 			string += ` { ${current.value} } -> `;
-			// console.log(current.value);
 			current = current.next;
 		}
 		string += 'NULL';
