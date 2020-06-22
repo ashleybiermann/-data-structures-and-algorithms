@@ -2,7 +2,7 @@
 
 ## Stack and a Queue Implementation
 
-### Challenge (what is specifically being ask, ie make a function that...)
+### Implement the following:
 - [x] Create a Node class
 - Create the following for each:
 - [x] Stack class
@@ -20,6 +20,17 @@
 
 ### Efficiency
 - O(1) linear time -push, enqueue, dequeue, pop, peek, isEmpty
+
+### Solution
+![Coming soon...]()
+
+<br>
+
+## Queue with Stacks
+
+### Implement a Queue using two Stacks
+
+### Efficiency
 
 ### Solution
 ![Coming soon...]()
