@@ -31,6 +31,7 @@
 ### Implement a Queue using two Stacks
 
 ### Efficiency
-
+- O(n)^2, exponential time, creates two new stacks
 ### Solution
-![Coming soon...]()
+![Algorithm](./queuewithstacks1.jpg)
+![Problem domain](./queuewithstacks2.jpg)
