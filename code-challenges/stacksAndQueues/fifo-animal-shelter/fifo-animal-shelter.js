@@ -51,4 +51,7 @@ myShelter.enqueue(kitty2);
 console.log(myShelter.dequeue('cat'));
 console.log(myShelter);
 
-module.exports = AnimalShelter;
+module.exports = {
+  AnimalShelter,
+  Animal
+}
