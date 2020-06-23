@@ -58,34 +58,54 @@ class Stack {
   }
 }
 
-class PseudoQueue extends Stack {
+class PseudoQueue {
+  constructor() {
+    this.stack1 = new Stack();
+    this.stack2 = new Stack();
+  }
 
   enqueue(value) {
-    this.push(value);
+    this.stack1.push(value); 
+    return this.stack1;
   }
 
   // empties out entirety of stack1 and stores it in stack2, pops one off the top of stack2 and returns it
   dequeue() {
-    let stack2 = new PseudoQueue();
 
-    let current = this.top;
+    let current = this.stack1.top;
     while (current) {
-      stack2.push(this.pop());
+      this.stack2.push(this.stack1.pop());
       current = current.next;
     }
     // console.log(stack2.toString());
-    let output = stack2.pop();
+    let output = this.stack2.pop();
+
     console.log(output);
     return output;
   }
+
+// used to help console log and see outputs
+  toString() {
+    let current = this.stack1.top;
+    let string = 'top -> ';
+
+    while (current) {
+      string += `[${current.value}] -> `;
+      current = current.next;
+    }
+    string += 'bottom';
+    console.log(string);
+    return string;
+  }
 }
 
-let stack1 = new PseudoQueue();
-stack1.enqueue('20');
-stack1.enqueue('15');
-stack1.enqueue('10');
-stack1.enqueue('5');
-stack1.dequeue(); 
-// stack1.toString();
+let pseudoQ = new PseudoQueue();
+pseudoQ.enqueue('20');
+pseudoQ.enqueue('15');
+pseudoQ.enqueue('10');
+pseudoQ.enqueue('5');
+pseudoQ.dequeue(); 
+pseudoQ.dequeue();
+// pseudoQ.toString();
 
 module.exports = PseudoQueue;
