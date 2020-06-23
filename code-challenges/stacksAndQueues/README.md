@@ -35,3 +35,6 @@
 ### Solution
 ![Algorithm](./queuewithstacks1.jpg)
 ![Problem domain](./queuewithstacks2.jpg)
+
+#### Citations
+- Alistair helped me with the visual, which helped me to better understand the concept and be able to write an algorithm and code
