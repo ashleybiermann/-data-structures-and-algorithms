@@ -6,6 +6,51 @@ class Node {
   }
 }
 
+class Tree {
+  constructor() {
+    this.root = null;
+  }
+
+  preOrder(root) {
+
+    console.log(root.value);
+
+    if (root.left !== null) {
+      this.preOrder(root.left)
+    }
+    if (root.right !== null) {
+      this.preOrder(root.right);
+    }
+  }
+
+  inOrder(root) {
+
+    if (root.left !== null) {
+      this.inOrder(root.left);
+    }
+
+    console.log(root.value);
+
+    if (root.right !== null) {
+      this.inOrder(root.right);
+    }
+  }
+
+  postOrder(root) {
+
+    if (root.left !== null) {
+      this.postOrder(root.left)
+    }
+
+    if (root.right !== null) {
+      this.postOrder(root.right);
+    }
+
+    console.log(root.value);
+  }
+
+}
+
 class BinarySearchTree {
   constructor() {
     this.root = null;
@@ -53,6 +98,44 @@ class BinarySearchTree {
     }
     return recurse(this.root);
   }
+
+  preOrder(root) {
+
+      console.log(root.value);
+
+    if (root.left !== null) {
+      this.preOrder(root.left)
+    }
+    if (root.right !== null) {
+      this.preOrder(root.right);
+    }
+  }
+  inOrder(root) {
+
+    if (root.left !== null) {
+      this.inOrder(root.left);
+    }
+
+    console.log(root.value);
+
+    if (root.right !== null) {
+      this.inOrder(root.right);
+    }
+  }
+
+  postOrder(root) {
+
+    if (root.left !== null) {
+      this.postOrder(root.left)
+    }
+
+    if (root.right !== null) {
+      this.postOrder(root.right);
+    }
+
+    console.log(root.value);
+  }
+
 }
 
 let bSTree = new BinarySearchTree();
@@ -63,8 +146,7 @@ bSTree.add(43);
 bSTree.add(3);
 bSTree.add(86);
 
-console.log(bSTree.contains(86));
-
-console.log(bSTree);
+// console.log(bSTree.preOrder(bSTree.root));
 
 module.exports = BinarySearchTree;
+
