@@ -10,7 +10,7 @@ Implmenent `add()` and `contains*()` methods on a binary search tree class
 - space complexity - O(1), since we are not allocating any additional space in a search
 
 ### Solution
-![Whiteboard for...]()
+![whiteboard](./binarytreeadd.jpg)
 
 #### References
 - [InitJS](https://initjs.org/implement-a-binary-search-tree-in-javascript-952a44ee7c26) for `add()`
