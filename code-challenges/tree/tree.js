@@ -49,6 +49,43 @@ class Tree {
     console.log(root.value);
   }
 
+  countLeaves(root, count) {
+
+    if (!root.left && !root.right) {
+      console.log('add one');
+      count += 1;
+    }
+
+    if (root.left) {
+      count += this.countLeaves(root.left, 0);
+    }
+
+    if (root.right) {
+      count += this.countLeaves(root.right, 0);
+    }
+    return count;
+  }
+
+  // finds the max value in the entire tree
+  findMaxValue(root, max) {
+    if (!root) {
+      return 'this is not a tree';
+    }
+
+    if (root.value > max) {
+      max = root.value;
+    }
+
+    if (root.left) {
+      // we are looking for the max, so we need to say that max = the recursion.... can't just call the recursion and not assign it to max
+      max = this.findMaxValue(root.left, max);
+    }
+
+    if (root.right) {
+      max = this.findMaxValue(root.right, max);
+    }
+    return max;
+  }
 }
 
 class BinarySearchTree {
@@ -101,7 +138,7 @@ class BinarySearchTree {
 
   preOrder(root) {
 
-      console.log(root.value);
+    console.log(root.value);
 
     if (root.left !== null) {
       this.preOrder(root.left)
@@ -136,17 +173,54 @@ class BinarySearchTree {
     console.log(root.value);
   }
 
+  countLeaves(root, count) {
+
+    if (!root.left && !root.right) {
+      console.log('add one');
+      count += 1;
+    }
+    // if there is a root.left
+    // call function on root.left
+    if (root.left) {
+      count += this.countLeaves(root.left, 0); // += keeps it from getting reset to 0
+    }
+    // if there is a root.right
+    // call function on root.right
+    if (root.right) {
+      count += this.countLeaves(root.right, 0);
+    }
+    return count;
+  }
 }
 
-let bSTree = new BinarySearchTree();
+// BINARY TREE
+let bT = new Tree();
+bT.root = new Node(1);
+bT.root.left = new Node(7);
+bT.root.left.right = new Node(6);
+bT.root.left.right.left = new Node(5);
+bT.root.left.right.right = new Node(11);
+bT.root.left.left = new Node(2);
+bT.root.right = new Node(5);
+bT.root.right.left = new Node(4);
 
-bSTree.add(25);
-bSTree.add(67);
-bSTree.add(43);
-bSTree.add(3);
-bSTree.add(86);
+console.log(bT.findMaxValue(bT.root, 0));
+// console.log(bT);
+
+// BINARY SEARCH TREE 
+// let bSTree = new BinarySearchTree();
+
+// bSTree.add(25);
+// bSTree.add(67);
+// bSTree.add(43);
+// bSTree.add(3);
+// bSTree.add(86);
 
 // console.log(bSTree.preOrder(bSTree.root));
-
-module.exports = BinarySearchTree;
+// console.log(bSTree.countLeaves(bSTree.root, 0));
+module.exports = {
+  Node: Node,
+  bst: BinarySearchTree,
+  bt: Tree
+}
 
