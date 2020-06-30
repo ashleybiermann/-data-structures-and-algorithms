@@ -39,6 +39,8 @@ Write an instance method called `findMaximumValue()`, which returns the max valu
 - Return a list of the values in the tree in the order they were encountered.
 
 ### Approach & Efficiency
+- O(n) - time, tracks the nodes by putting them in a queue (array), and taking them out, each once
+- O(n) - space, creates a results array and a queue (array) to hold the info
 
 ### Solution
-![whiteboard]()
+![whiteboard](./breadthfirsttraversal.jpg)
