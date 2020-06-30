@@ -54,5 +54,18 @@ describe('Testing Binary Search Tree class', () => {
     let bT2 = new trees.bt();
     expect(bT2.findMaxValue(bT2.root, 0)).toEqual('this is not a tree');
   });
+  // breadth-first-traversal binary tree
+  it('Should return a list of value in the order they were encountered, using breadth-first-traversal', () => {
+    let bT = new trees.bt();
+    bT.root = new trees.Node(1);
+    bT.root.left = new trees.Node(7);
+    bT.root.left.right = new trees.Node(6);
+    bT.root.left.right.left = new trees.Node(3);
+    bT.root.left.right.right = new trees.Node(11);
+    bT.root.left.left = new trees.Node(2);
+    bT.root.right = new trees.Node(5);
+    bT.root.right.left = new trees.Node(4);
+    expect(bT.bFT()).toEqual([ 1, 7, 5, 2, 6, 4, 3, 11 ]);
+  });
 });
 
