@@ -30,3 +30,15 @@ Write an instance method called `findMaximumValue()`, which returns the max valu
 
 ### Solution
 ![whiteboard](./binarytreemax.jpg)
+
+## Breadth-First-Traversal in Binary Tree
+
+### breadth-first-traversal
+- Write method which takes a Binary Tree as its unique input
+- Traverse the input tree using a Breadth-first approach
+- Return a list of the values in the tree in the order they were encountered.
+
+### Approach & Efficiency
+
+### Solution
+![whiteboard]()

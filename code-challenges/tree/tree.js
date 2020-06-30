@@ -86,6 +86,28 @@ class Tree {
     }
     return max;
   }
+
+  bFT() {
+    let currentRoot = this.root;
+    let output = []; 
+    let helperQ = [];
+ 
+    helperQ.push(currentRoot);
+
+    while (helperQ.length) {    
+ 
+      currentRoot = helperQ.shift();
+      output.push(currentRoot.value);
+
+      if(currentRoot.left) {
+        helperQ.push(currentRoot.left);
+      } 
+      if(currentRoot.right) {
+        helperQ.push(currentRoot.right);
+      }
+    }
+    return output;
+  }
 }
 
 class BinarySearchTree {
@@ -193,19 +215,80 @@ class BinarySearchTree {
   }
 }
 
+class Queue {
+  constructor() {
+    this.front = null;
+    this.rear = null;
+  }
+
+  enqueue(value) {
+    const node = new Node(value);
+    if (this.front === null) {
+      this.front = node;
+    } else {
+      this.rear.next = node;
+    }
+    this.rear = node;
+  }
+  dequeue() {
+    if(this.front) {
+      const value = this.front.value;
+      this.front = this.front.next;
+      return value;
+    } else {
+      return 'no nodes to dequeue';
+    }
+  }
+
+  peek() {
+    if (this.front) {
+      return this.front.value;
+    } else {
+      return 'queue is empty';
+    }
+  }
+
+  isEmpty() {
+    return (this.front === null);
+  }
+
+  toString() {
+    let current = this.front;
+    let string = 'front ->';
+
+    while (current) {
+      string += ` [${current.value}] `;
+      current = current.next;
+    }
+    string += '<- rear'; 
+    console.log(string)
+    return string;
+  }
+
+  length() {
+    let current = this.front;
+    let counter = 0;
+    while (current) {
+      counter++;
+      current = current.next;
+    }
+    return counter;
+  }
+}
+
 // BINARY TREE
 let bT = new Tree();
 bT.root = new Node(1);
 bT.root.left = new Node(7);
 bT.root.left.right = new Node(6);
-bT.root.left.right.left = new Node(5);
+bT.root.left.right.left = new Node(3);
 bT.root.left.right.right = new Node(11);
 bT.root.left.left = new Node(2);
 bT.root.right = new Node(5);
 bT.root.right.left = new Node(4);
 
-console.log(bT.findMaxValue(bT.root, 0));
 // console.log(bT);
+console.log(bT.bFT());
 
 // BINARY SEARCH TREE 
 // let bSTree = new BinarySearchTree();
