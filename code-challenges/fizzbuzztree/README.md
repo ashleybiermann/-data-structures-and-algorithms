@@ -11,8 +11,8 @@
 - Return a new tree.
 
 ### Approach & Efficiency
-- O(1)? etc
-- 
+- O(n) - time and space. traverses the entire tree, but also makes a new one of the same size. as the trees grow, so does the efficiency
+- See solution below - NOTE: made an adjustment to use preOrder traversal rather than breadth first. 
 
 ### Solution
-![Whiteboard]()
+![whiteboard](./fizzbuzztree.jpg)
