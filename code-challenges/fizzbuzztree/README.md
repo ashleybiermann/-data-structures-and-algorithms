@@ -16,3 +16,6 @@
 
 ### Solution
 ![whiteboard](./fizzbuzztree.jpg)
+
+### Resources
+After I got the logic working for a binary tree, Garhett helped me figure out how to construct a k-ary tree with for loop to check the children.
