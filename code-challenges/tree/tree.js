@@ -288,7 +288,7 @@ bT.root.right = new Node(5);
 bT.root.right.left = new Node(4);
 
 // console.log(bT);
-console.log(bT.bFT());
+console.log(bT.inOrder());
 
 // BINARY SEARCH TREE 
 // let bSTree = new BinarySearchTree();
