@@ -3,8 +3,7 @@
 class Node {
   constructor(value) {
     this.value = value;
-    this.left = null;
-    this.right = null;
+    this.children = [];
   }
 }
 
@@ -16,59 +15,49 @@ class Tree {
   preOrder(root) {
     console.log(root.value);
 
-    if (root.left !== null) {
-      this.preOrder(root.left)
-    }
-    if (root.right !== null) {
-      this.preOrder(root.right);
+    for (let i = 0; i < root.children.length; i++) {
+      if (root.children[i] !== null) {
+        this.preOrder(root.children[i]);
+      }
     }
   }
 
 
-  fizzBuzzTree(root, outputArray) {
+  fizzBuzzTree(root) {
     let fbtree = new Tree(); 
-    outputArray = [];
-
-    console.log(root.value);
   
-    if (root.value % 3 !== 0 && root.value % 5 !== 0) {
-      outputArray.push((root.value).toString() + ' ');
-    } else if (root.value % 3 === 0 && root.value % 5 === 0) {
-      outputArray.push('FizzBuzz ');
-      // node = new Node(root.value);
+    if (root.value % 3 === 0 && root.value % 5 === 0) {
+      fbtree = new Node('FizzBuzz');
 
     } else if (root.value % 3 === 0){
-      outputArray.push('Fizz ');
+      fbtree = new Node('Fizz');
+
     } else if (root.value % 5 === 0) {
-      outputArray.push('Buzz ');
+      fbtree = new Node('Buzz');
+
+    } else if (root.value % 3 !== 0 && root.value % 5 !== 0) {
+      fbtree = new Node(`${root.value}`);
     } 
 
-    if (root.left !== null) {
-      outputArray += this.fizzBuzzTree(root.left, outputArray);
+    for (let i = 0; i < root.children.length; i++) {
+      if (root.children[i] !== null) {
+        fbtree.children[i] = this.fizzBuzzTree(root.children[i], fbtree.children[i]);
+      }
     }
-    if (root.right !== null) {
-      outputArray += this.fizzBuzzTree(root.right, outputArray);
-    }
-    console.log(outputArray);
-    return outputArray;
+    return fbtree;
   }
 }
 
-
 // BINARY TREE
-let bT = new Tree();
-bT.root = new Node(1);
-bT.root.left = new Node(3);
-bT.root.left.right = new Node(7);
-bT.root.left.right.left = new Node(4);
-bT.root.left.right.right = new Node(10);
-bT.root.left.left = new Node(15);
-bT.root.right = new Node(20);
-bT.root.right.right = new Node(16);
-bT.root.right.right.left = new Node(33);
+let kTree = new Tree();
+kTree.root = new Node(15);
+kTree.root.children[0] = new Node(1);
+kTree.root.children[1] = new Node(3);
+kTree.root.children[2] = new Node(5);
+kTree.root.children[1].children[0] = new Node(4);
+kTree.root.children[1].children[1] = new Node(30);
+kTree.root.children[2].children[0] = new Node(7);
 
-// console.log(bT.preOrder(bT.root));
-console.log(bT.fizzBuzzTree(bT.root, []));
-
+console.log(kTree.fizzBuzzTree(kTree.root));
 
 module.exports = Tree;
