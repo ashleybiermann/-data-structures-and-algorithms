@@ -13,13 +13,15 @@ class Tree {
   }
 
   preOrder(root) {
-    console.log(root.value);
-
+    let arr = [];
+    arr.push(root.value);
+    
     for (let i = 0; i < root.children.length; i++) {
       if (root.children[i] !== null) {
-        this.preOrder(root.children[i]);
+        arr.push(this.preOrder(root.children[i]));
       }
     }
+    return arr;
   }
 
 
@@ -58,6 +60,10 @@ kTree.root.children[1].children[0] = new Node(4);
 kTree.root.children[1].children[1] = new Node(30);
 kTree.root.children[2].children[0] = new Node(7);
 
-console.log(kTree.fizzBuzzTree(kTree.root));
+console.log(kTree.preOrder(kTree.fizzBuzzTree(kTree.root)));
+// console.log(kTree.fizzBuzzTree(kTree.root));
 
-module.exports = Tree;
+module.exports = {
+  Tree,
+  Node
+}
