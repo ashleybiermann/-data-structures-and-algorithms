@@ -2,42 +2,37 @@
 
 
 function mergeSort(arr) {
-  let n = arr.length;
-
-  if (n > 1) {
-    const mid = Math.floor(n/2); // round down for odd nums
-    const left = arr.slice(0, mid);
-    const right = arr.slice(mid);
-
-    mergeSort(left);
-    mergeSort(right);
-
-    return merge(left, right);
+  // only sort if the array is longer than 1
+  if (arr.length <= 1) {
+    return arr;
   }
+
+  // find middle of array (will recurse this)
+  const mid = Math.floor(arr.length/2);
+  // divide and conquer! left and right sides
+  const left = mergeSort(arr.slice(0, mid)); // recursion to divid all of sub arrays
+  const right = mergeSort(arr.slice(mid));
+
+  return merge(left, right);
 }
 
 function merge(left, right) {
   let arr = [];
-  let i = 0; // left index
-  let j = 0; // right index
 
-  while (i < left.length && j < right.length) {
-    if (left[i] <= right[j]) {
-      arr[k] = left[i];
-      i = i + 1; // increment the left index tracker
+  while (left.length > 0 && right.length > 0) {
+    if (left[0] < right[0]) {
+      arr.push(left.shift());
     } else {
-      arr[k] = right[j];
-      j = j + 1; // increment the right index tracker
-    }
-    k = k + 1;
-
-    if (i === left.length) {
-      arr.concat(right);
-    } else {
-      arr.concat(left);
+      arr.push(right.shift());
     }
   }
-  return arr;
+  if (left.length > 0) {
+    return arr.concat(left);
+  }
+  return arr.concat(right);
 }
+
+const testArr1 = [8, 4, 23, 42, 16, 15];
+console.log(mergeSort(testArr1));
 
 module.exports = mergeSort;

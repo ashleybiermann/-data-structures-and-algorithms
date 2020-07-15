@@ -38,13 +38,15 @@
         else
           set remaining entries in arr to remaining values in left
 
-### Approach & Efficiency
-- O(1)? etc
-- 
+### Efficiency
+- TIME complexity: O(n log n) is worst-case
+- SPACE complexity: O(n), 
 
 ### Solution
 ![mergeSort](./mergesortvisual.jpg)
 ![mergeSort](./mergesortjs.jpg)
 
 #### Resources
+- Marlene Rinker talked this over with me, and helped me get a better grasp on how to do it. She shared some resources with me.
 - [Merge Sort - Tim Han](https://medium.com/javascript-in-plain-english/javascript-merge-sort-3205891ac060)
+- [DS - Merge Sort Algorithm](https://www.tutorialspoint.com/data_structures_algorithms/merge_sort_algorithm.htm#:~:text=Merge%20sort%20is%20a%20sorting,them%20in%20a%20sorted%20manner.)
