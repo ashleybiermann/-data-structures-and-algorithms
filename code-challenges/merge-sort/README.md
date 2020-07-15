@@ -43,7 +43,8 @@
 - 
 
 ### Solution
-![mergeSort](./mergeSort.jpg)
+![mergeSort](./mergesortvisual.jpg)
+![mergeSort](./mergesortjs.jpg)
 
 #### Resources
 - [Merge Sort - Tim Han](https://medium.com/javascript-in-plain-english/javascript-merge-sort-3205891ac060)
