@@ -36,8 +36,12 @@
         arr[low] <-- temp
 
 ### Approach & Efficiency
-- TIME complexity: O(1)? etc
-- SPACE complexity: 
+- TIME complexity: O(n2)
+- SPACE complexity: O(1)  Quick sort is performed on the same array and no new arrays are created in the process.
 
 ### Solution
 ![Whiteboard for...]()
+
+### Resources
+- [Code guru](https://www.guru99.com/quicksort-in-javascript.html)
+- [medium.com - Blog](https://medium.com/@Charles_Stover/implementing-quicksort-in-javascript-8044a8e2bf39)

@@ -9,15 +9,15 @@ const testArr4 = [2,3,5,7,13,11];
 
 describe('Testing mergeSort function', () => {
   it('Should sort the array in ascending order', () => {
-    expect(quickSort(testArr1)).toStrictEqual([ 4, 8, 15, 16, 23, 42 ]);
+    expect(quickSort(testArr1, 0, (testArr1.length - 1))).toStrictEqual([ 4, 8, 15, 16, 23, 42 ]);
   });
   it('Should sort the array in ascending order', () => {
-    expect(quickSort(testArr2)).toStrictEqual([ -2, 5, 8, 12, 18, 20 ]);
+    expect(quickSort(testArr2, 0, (testArr2.length - 1))).toStrictEqual([ -2, 5, 8, 12, 18, 20 ]);
   });
   it('Should sort the array in ascending order', () => {
-    expect(quickSort(testArr3)).toStrictEqual([ 5, 5, 5, 7, 7, 12 ]);
+    expect(quickSort(testArr3, 0, (testArr3.length - 1))).toStrictEqual([ 5, 5, 5, 7, 7, 12 ]);
   });
   it('Should sort the array in ascending order', () => {
-    expect(quickSort(testArr4)).toStrictEqual([ 2, 3, 5, 7, 11, 13 ]);
+    expect(quickSort(testArr4, 0, (testArr4.length - 1))).toStrictEqual([ 2, 3, 5, 7, 11, 13 ]);
   });
 });
