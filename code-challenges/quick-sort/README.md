@@ -40,8 +40,11 @@
 - SPACE complexity: O(1)  Quick sort is performed on the same array and no new arrays are created in the process.
 
 ### Solution
-![Whiteboard for...]()
+![quickSort](./quickSort.jpg)
+- From blog post [medium.com - Blog](https://medium.com/@Charles_Stover/implementing-quicksort-in-javascript-8044a8e2bf39)
+![gif](./quicksortCharlesStover.gif)
 
 ### Resources
 - [Code guru](https://www.guru99.com/quicksort-in-javascript.html)
 - [medium.com - Blog](https://medium.com/@Charles_Stover/implementing-quicksort-in-javascript-8044a8e2bf39)
+- [human who codes](https://humanwhocodes.com/blog/2012/11/27/computer-science-in-javascript-quicksort/)
