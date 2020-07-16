@@ -6,9 +6,8 @@
 - 
 
 ### Approach & Efficiency
-- O(1)? etc
-- 
-- 
+- TIME complexity: O(1)? etc
+- SPACE complexity: 
 
 ### Solution
 ![Whiteboard for...]()
