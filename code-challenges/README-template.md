@@ -10,4 +10,4 @@
 - SPACE complexity: 
 
 ### Solution
-![Whiteboard for...]()
+![Whiteboard]()
