@@ -31,6 +31,19 @@
         OBJECT = [key, value]
         SET THIS.Buckets[HASH].add(OBJECT)
 
+      ALGORITHM Get(STRING KEY)
+
+        INDEX = THIS.Buckets[THIS.hash(KEY)]
+        IF (!THIS.Bucket[INDEX])  
+          RETURN NULL
+
+        Value = Bucket.FIND(KEY)
+        RETURN Value
+
+      ALGORITH Contains(KEY)
+
+        RETURN BOOLEAN (THIS.Buckets[THIS.hash(KEY)]);
+
       
 
 ### Efficiency
@@ -39,3 +52,7 @@
 
 ### Solution
 ![Whiteboard]()
+
+### Resources
+- Used my previously built Linked List to reference the `includes()` function, modifiying it to create the `get()` function
+- [medium blog](https://medium.com/javascript-in-plain-english/algorithm-in-javascript-hash-table-7b0464d2b81b) - Referenced the `get()` function to better understand how to figure out how to access the index of the particular bucket again.
