@@ -38,9 +38,17 @@ class HashTable {
   }
 
   contains(key) {
-   return Boolean (this.buckets[this.hash(key)]);
+    let bucket = this.buckets[this.hash(key)];
+    if (!bucket) {
+      return false;
+    }
+    let value = bucket.find(key)
+    if (value) {
+      return true
+    };
   }
 }
+// return Boolean(this.buckets[this.hash(key)]);
 
 /*
   Node and Linked List classes for use within hash structures
@@ -82,30 +90,29 @@ class LinkedList {
   }
 
   find(key) {
-		let value = undefined;
-		let current = this.head;
+    let value = undefined;
+    let current = this.head;
+    let objKey = Object.keys(current.value)[0];
 
-		while (current) {
-      if (key == Object.keys(current.value)) {
+    while (current) {
+      if (key === objKey) {
         value = Object.values(current.value).toString();
-			}
-			current = current.next;
-		}
-		return value;
-	}
+      }
+      current = current.next;
+    }
+    return value;
+  }
 }
-
 
 let map = new HashTable(1024);
 map.add('Ashley', 'student');
 map.add('SecondPerson', 'student');
 
 map.buckets.forEach((bucket, index) => {
-  console.log(index, bucket.values());
+  // console.log(index, bucket.values());
 });
 
-console.log(map.contains('Ashley'));
-console.log(map.contains('Maggie'));
-
+// console.log(map.contains('Ashley'));
+// console.log(map.contains('Maggie'));
 
 module.exports = HashTable;
