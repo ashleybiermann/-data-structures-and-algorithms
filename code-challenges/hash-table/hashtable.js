@@ -11,7 +11,7 @@ class HashTable {
     let charArray = key.split('');
     // return to me the ascii code value at the index of string
     let hashSum = charArray.reduce((total, char) => {
-      return total + char.charCodeAt(0)
+      return total + char.charCodeAt(0);
     }, 0) * 599;
     let HashIndex = hashSum % this.size;
     return HashIndex;
@@ -33,7 +33,7 @@ class HashTable {
     if (!bucket) {
       return null;
     }
-    let value = bucket.find(key)
+    let value = bucket.find(key);
     return value;
   }
 
@@ -42,10 +42,10 @@ class HashTable {
     if (!bucket) {
       return false;
     }
-    let value = bucket.find(key)
+    let value = bucket.find(key);
     if (value) {
-      return true
-    };
+      return true;
+    }
   }
 }
 // return Boolean(this.buckets[this.hash(key)]);

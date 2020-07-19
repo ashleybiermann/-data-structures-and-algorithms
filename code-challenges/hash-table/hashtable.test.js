@@ -5,26 +5,31 @@ const HashTable = require('./hashtable.js');
 describe('Testing the HashTable class', () => {
   it('Should add a key/value object to the hashtable results', () => {
     let map = new HashTable();
-    expect(map.add('Ashley', 'student')).toStrictEqual('Ashley');
+    map.add('ashley', 'student');
+    expect(map.contains('ashley')).toBe(true);
   });
   it('Should retrieve a value based on key', () => {
-    
-    expect();
+    let map = new HashTable();
+    expect(map.add('ashley', 'student'));
+    expect(map.contains('ashley')).toBe(true);
   });
   it('Should return null for a key that does not exist in the hashtable', () => {
-   
-    expect();
+    let map = new HashTable();
+    expect(map.get('ashley')).toBe(null);
   });
   it('Should handle a collision within the hashtable', () => {
-   
-    expect();
+    //TODO:
+    let map = new HashTable();
+    // expect(map.add('ashley', 'student'));
+    // expect(map.add('ashley', 'student'));
+    // expect();
   });
   it('Should retrieve a value from a bucket within the hashtable that has a collision', () => {
-    
-    expect();
-  });
-  it('Should has a key to an in-range value', () => {
-    
-    expect();
+    let map = new HashTable();
+    //TODO:
+    expect(map.add('ashley', 'student'));
+    expect(map.add('ashley', 'student'));
+
+    expect(map.contains('ashley')).toBe(true);
   });
 });
