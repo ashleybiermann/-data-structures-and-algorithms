@@ -8,7 +8,7 @@
 - Use no built-in library methods available to your language
 
 ### Approach & Efficiency
-- TIME complexity: O(n) - could go through all words in string
+- TIME complexity: O(n) - could go through all words in string, uses a hashmap which of O(1) time
 - SPACE complexity: O(log2n) - creates a hashTable and an extra array to hold string 
 
 ### Solution

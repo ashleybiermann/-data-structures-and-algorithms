@@ -6,6 +6,8 @@ class Node {
   }
 }
 
+// Binary Tree
+
 class Tree {
   constructor() {
     this.root = null;
@@ -16,7 +18,7 @@ class Tree {
     console.log(root.value);
 
     if (root.left !== null) {
-      this.preOrder(root.left)
+      this.preOrder(root.left);
     }
     if (root.right !== null) {
       this.preOrder(root.right);
@@ -39,7 +41,7 @@ class Tree {
   postOrder(root) {
 
     if (root.left !== null) {
-      this.postOrder(root.left)
+      this.postOrder(root.left);
     }
 
     if (root.right !== null) {
