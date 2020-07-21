@@ -48,7 +48,7 @@
 
 ### Efficiency
 - TIME complexity: O(1), because you access a hash table directly at the hash index in which you are searching
-- SPACE complexity: 
+- SPACE complexity: O(log2n)
 
 ### Solution
 ![Whiteboard]()
