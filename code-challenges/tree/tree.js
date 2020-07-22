@@ -13,17 +13,29 @@ class Tree {
     this.root = null;
   }
 
-  preOrder(root) {
+  preOrderHelper(root, results) {
+    results.push(root.value);
 
-    console.log(root.value);
-
-    if (root.left !== null) {
-      this.preOrder(root.left);
+    if (root.left !== null){
+      this.preOrderHelper(root.left, results);
     }
     if (root.right !== null) {
-      this.preOrder(root.right);
+      this.preOrderHelper(root.right, results);
+    }
+
+  }
+
+  preOrder(root) {
+    try {
+      let results = [];
+      this.preOrderHelper(root, results);
+      return results;
+    }
+    catch(err){
+      console.error('An error has occured: ' + err);
     }
   }
+
 
   inOrder(root) {
 
@@ -290,7 +302,7 @@ bT.root.right = new Node(5);
 bT.root.right.left = new Node(4);
 
 // console.log(bT);
-console.log(bT.inOrder());
+// console.log(bT.preOrder(bT.root));
 
 // BINARY SEARCH TREE 
 // let bSTree = new BinarySearchTree();
