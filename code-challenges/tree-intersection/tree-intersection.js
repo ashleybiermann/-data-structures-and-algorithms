@@ -50,7 +50,7 @@ function findIntersections(root, obj) {
     }
     return results;
   }
-  catch(err) {
+  catch (err) {
     console.log('An error has occured: ', err)
   }
 }
@@ -99,4 +99,11 @@ binaryTree2.root.right.right.left = new t.Node(4);
 // console.log(binaryTree1);
 console.log(treeIntersection(binaryTree1, binaryTree2));
 
-module.exports = treeIntersection;
+module.exports = {
+  treeIntersection: treeIntersection,
+  getValues: getValues,
+  getValuesHelper: getValuesHelper,
+  findIntersections: findIntersections,
+  findIntersectionsHelper: findIntersectionsHelper
+}
+
