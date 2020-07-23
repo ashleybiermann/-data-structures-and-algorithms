@@ -5,6 +5,8 @@ class HashTable {
   constructor(size) {
     this.size = size;
     this.buckets = new Array(size);
+    this.keysArr = []; // adds keys to an array. used for leftJoin
+    this.keysObj = {};
   }
 
   hash(key) {
@@ -18,6 +20,9 @@ class HashTable {
   }
 
   add(key, value) {
+    this.keysArr.push(key)
+    this.keysObj[key] = value; // used for leftJoin
+
     let hash = this.hash(key);
     if (!this.buckets[hash]) {
       this.buckets[hash] = new LinkedList();

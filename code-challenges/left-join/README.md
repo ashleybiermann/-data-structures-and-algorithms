@@ -12,6 +12,7 @@
 - Avoid utilizing any of the library methods available to your language.
 
 ![left join example I/O](./leftjoinexample.jpg)
+![leftjoin](./leftjoin.jpg)
 
 ### Approach & Efficiency
 - TIME complexity:
