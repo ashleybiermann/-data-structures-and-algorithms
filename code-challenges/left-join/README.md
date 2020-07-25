@@ -12,11 +12,10 @@
 - Avoid utilizing any of the library methods available to your language.
 
 ![left join example I/O](./leftjoinexample.jpg)
-![leftjoin](./leftjoin.jpg)
 
 ### Approach & Efficiency
-- TIME complexity:
-- SPACE complexity: 
+- TIME complexity: O(1), because we only have to check through the left table values and directly look for it in the right table
+- SPACE complexity: O(n2), becauses it adds both an array and an object when a key:value is added to the table 
 
 ### Solution
-![Whiteboard]()
+![leftjoin](./leftjoin.jpg)
