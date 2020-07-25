@@ -5,6 +5,7 @@ const Graph = require('./graph.js');
 // Write tests to prove the following functionality:
 
 // Node can be successfully added to the graph
+
 // An edge can be successfully added to the graph
 // A collection of all nodes can be properly retrieved from the graph
 // All appropriate neighbors can be retrieved from the graph
