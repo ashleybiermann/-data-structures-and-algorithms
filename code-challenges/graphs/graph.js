@@ -1,6 +1,6 @@
 'use strict';
 
-const util = require('util');
+// const util = require('util');
 
 class Vertex {
   constructor(value) {
@@ -20,8 +20,6 @@ class Graph {
     this.adjacencylist = new Map(); // contain all of the vertices in our graph
   }
 
-
-
   addVertex(value) {
     const vertex = new Vertex(value);
     this.adjacencylist.set(vertex, []);
@@ -29,19 +27,15 @@ class Graph {
     return vertex;
   }
 
-
-
-  addEdge(startVertex, endVertex) {
+  addEdge(startVertex, endVertex, weight = 0) {
     if (!this.adjacencylist.has(startVertex) || !this.adjacencylist.has(endVertex)) {
       console.log('Invalid Vertices');
     }
 
     const edges = this.adjacencylist.get(startVertex);
-    const edge = new Edge(endVertex, 0);
+    const edge = new Edge(endVertex, weight);
     edges.push(edge);
   }
-
-
 
   getNeighbors(vertex) {
     if (!this.adjacencylist.has(vertex)) {
@@ -51,6 +45,14 @@ class Graph {
     return [...this.adjacencylist.get(vertex)];
   }
 
+  getNodes() {
+    return this.adjacencylist;
+  }
+
+  size() {
+    return this.adjacencylist.size;
+  }
+  
   // looks at all vertices starting at the top level going down.
   breadthFirst(startVertex) {
 
@@ -63,7 +65,7 @@ class Graph {
     while (queue.length) {
       const current = queue.shift(); // the new pop()!!
 
-      console.log(current);
+      // console.log(current);
       const neighbors = this.getNeighbors(current);
 
       // check if there are neighbors that haven't been visited
@@ -79,9 +81,8 @@ class Graph {
         // push each edge that is adjacent to current into the queue.
         queue.push(vertex);
       }
-
     }
-
+    return visitedNodes;
   }
 
   // performs an operatoin starting with furthest level of vertices from the 'start' vertex
@@ -119,10 +120,6 @@ class Graph {
 
     return;
   }
-
-  getNodes() {
-    return this.adjacencylist;
-  }
 }
 
 const graph = new Graph();
@@ -135,7 +132,6 @@ const seven = graph.addVertex(7);
 const eight = graph.addVertex(8);
 const ten = graph.addVertex(10);
 
-
 graph.addEdge(one, two);
 graph.addEdge(one, four);
 graph.addEdge(two, four);
@@ -144,12 +140,16 @@ graph.addEdge(six, eight);
 graph.addEdge(six, ten);
 graph.addEdge(seven, ten);
 
+module.exports = Graph;
 
 // console.log(util.inspect(graph, false, null, true));
 // console.log(util.inspect(graph.breadthFirst(one), false, null, true));
-console.log('*********')
-graph.breadthFirst(one);
+// console.log('*********')
+// graph.breadthFirst(one);
+// graph.breadthFirst(one);
 // graph.breadthFirst(seven);
-console.log('**********');
-graph.depthFirst(one);
+// console.log('**********');
+// graph.depthFirst(one);
+// console.log(graph.getNodes());
+// console.log(graph.size());
 // console.log(graph.getNeighbors(one));
