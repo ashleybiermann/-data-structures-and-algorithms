@@ -65,7 +65,7 @@ class Graph {
     while (queue.length) {
       const current = queue.shift(); // the new pop()!!
 
-      console.log(current);
+      // console.log(current);
       const neighbors = this.getNeighbors(current);
 
       // check if there are neighbors that haven't been visited
@@ -82,6 +82,7 @@ class Graph {
         queue.push(vertex);
       }
     }
+    return visitedNodes;
   }
 
   // performs an operatoin starting with furthest level of vertices from the 'start' vertex
@@ -139,14 +140,16 @@ graph.addEdge(six, eight);
 graph.addEdge(six, ten);
 graph.addEdge(seven, ten);
 
+module.exports = Graph;
 
 // console.log(util.inspect(graph, false, null, true));
 // console.log(util.inspect(graph.breadthFirst(one), false, null, true));
-console.log('*********')
-graph.breadthFirst(one);
+// console.log('*********')
+// graph.breadthFirst(one);
+// graph.breadthFirst(one);
 // graph.breadthFirst(seven);
-console.log('**********');
-graph.depthFirst(one);
+// console.log('**********');
+// graph.depthFirst(one);
 // console.log(graph.getNodes());
-console.log(graph.size());
+// console.log(graph.size());
 // console.log(graph.getNeighbors(one));
