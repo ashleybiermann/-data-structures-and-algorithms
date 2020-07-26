@@ -29,8 +29,6 @@ The graph should be represented as an adjacency list, and should include the fol
   - Returns the total number of nodes in the graph
 
 ### Approach & Efficiency
-- TIME complexity:
-- SPACE complexity: 
-
-### Solution
-![Whiteboard]()
+Using an adjacency list
+- Storage O(vertices + edges)
+- addVertex - O(1) , addEdge - O(1)
