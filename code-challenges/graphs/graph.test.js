@@ -39,6 +39,27 @@ describe('Testing the Graph object', () => {
 
     expect(graph.breadthFirst(one)).toMatchSnapshot();
   })
+  it('Should perform a breadth first search', () => {
+    const graph = new Graph();
+
+    const one = graph.addVertex(1);
+    const two = graph.addVertex(2);
+    const four = graph.addVertex(4);
+    const six = graph.addVertex(6);
+    const seven = graph.addVertex(7);
+    const eight = graph.addVertex(8);
+    const ten = graph.addVertex(10);
+
+    graph.addEdge(one, two);
+    graph.addEdge(one, four);
+    graph.addEdge(two, four);
+    graph.addEdge(four, six);
+    graph.addEdge(six, eight);
+    graph.addEdge(six, ten);
+    graph.addEdge(seven, ten);
+
+    expect(graph.breadthFirst(two)).toMatchSnapshot();
+  })
   it('Should return all neighbors of a node', () => {
     const graph = new Graph();
 

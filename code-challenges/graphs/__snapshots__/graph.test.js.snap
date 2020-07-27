@@ -23,6 +23,26 @@ Set {
 }
 `;
 
+exports[`Testing the Graph object Should perform a breadth first search 2`] = `
+Set {
+  Vertex {
+    "value": 2,
+  },
+  Vertex {
+    "value": 4,
+  },
+  Vertex {
+    "value": 6,
+  },
+  Vertex {
+    "value": 8,
+  },
+  Vertex {
+    "value": 10,
+  },
+}
+`;
+
 exports[`Testing the Graph object Should return a graph with only one vertex and one edge: {"adjacencylist": Map {{"value": 1} => [{"vertex": {"value": 1}, "weight": 0}]}} 1`] = `
 Graph {
   "adjacencylist": Map {
