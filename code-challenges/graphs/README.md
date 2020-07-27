@@ -32,3 +32,23 @@ The graph should be represented as an adjacency list, and should include the fol
 Using an adjacency list
 - Storage O(vertices + edges)
 - addVertex - O(1) , addEdge - O(1)
+
+## Breadth First Graph Traversal
+
+### Challenge 
+
+Implement a breadth-first traversal on a graph.
+
+- Accepts a starting node
+- Without utilizing any of the built-in methods available to your language
+- Returns a collection of nodes in the order they were visited
+- Displays the collection
+
+### Approach & Efficiency
+
+- Time: O(V + E) - using an adjacency list. We need to check every vertex that is attached by an edge, and compare to what has already been seen. This could mean we see all of the edges and vertices more than once, or perhaps not all all. Worst case, we see them all multiple times. 
+-  Space: O(Log n), we create a new queue and a new set, which initially takes up space, but it doesn't grow too quickly even when we visit nodes and edges multiple times.
+
+### Solution
+
+![UML](./breadthfirstgraph.jpg)
