@@ -52,3 +52,19 @@ Implement a breadth-first traversal on a graph.
 ### Solution
 
 ![UML](./breadthfirstgraph.jpg)
+
+
+##  Get Edge
+
+### Challenge
+- Given a business trip itinerary, and an Alaska Airlines route map, is the trip possible with direct flights? If so, how much will the total trip cost be?
+- Write a function which takes in a graph, and an array of city names
+- Without utilizing any of the built-in methods available to your language
+- Return whether the full trip is possible with direct flights, and how much it would cost
+
+### Approach & Efficiency
+- TIME complexity: 
+- SPACE complexity: 
+
+### Solution
+![Whiteboard](./getedgegraph.jpg)
