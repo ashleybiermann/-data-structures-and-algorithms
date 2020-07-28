@@ -12,9 +12,12 @@ const Graph = require('./graph.js');
   // repeat on the again until all cities in input have been checked
 // return boolean, and edge weight total cost
 
+
 function getEdges (arr) {
   
   let totalCost = 0;
+  let flightLegs = arr.length - 1;
+  let directAvailable = 0;
 
   for (let i = 0; i < (arr.length - 1) ; i++) {
     let startingHere = arr[i];
@@ -34,13 +37,16 @@ function getEdges (arr) {
       let connectedCityInfo = connectedCities[i];
   
       if (destinationCity === connectedCity) {
-        console.log('Match~!')
+        directAvailable += 1;
+        console.log('direct available', directAvailable);
         totalCost += connectedCityInfo.weight;
+      } else {
+        console.log('no match found :(')
       }
     }
     console.log('totalcosssst', totalCost)
   }
-  if (totalCost === 0) {
+  if (directAvailable !== flightLegs) {
     return `False, $0`;
   }
   return `True, $${totalCost}`;
@@ -67,6 +73,6 @@ graph.addEdge(narnia, naboo, 250);
 graph.addEdge(monstropolis, naboo, 73);
 
 
-console.log(getEdges([arendelle, monstropolis, naboo]));
+console.log(getEdges([arendelle, monstropolis, narnia]));
 
 module.exports = getEdges;
