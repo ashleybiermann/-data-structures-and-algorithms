@@ -22,11 +22,6 @@ function getEdges (arr) {
     helper(startingHere, canIGoHere);
   }
 
-  // let startingHere = arr[0];
-  // let canIGoHere = arr[1];
-
-  // helper(startingHere, canIGoHere);
-
   function helper (startingVertex, destinationVertex) {
 
     let destinationCity = destinationVertex.value;
@@ -34,7 +29,6 @@ function getEdges (arr) {
     let connectedCities = graph.getNeighbors(startingVertex);
   
     for (let i = 0; i < connectedCities.length; i++) {
-      console.log('in the for loop');
 
       let connectedCity = connectedCities[i].vertex.value;
       let connectedCityInfo = connectedCities[i];
@@ -42,8 +36,7 @@ function getEdges (arr) {
       if (destinationCity === connectedCity) {
         console.log('Match~!')
         totalCost += connectedCityInfo.weight;
-        break;
-      } 
+      }
     }
     console.log('totalcosssst', totalCost)
   }
@@ -73,8 +66,7 @@ graph.addEdge(metroville, naboo, 26);
 graph.addEdge(narnia, naboo, 250);
 graph.addEdge(monstropolis, naboo, 73);
 
-// console.log(getEdges(pandora, arendelle));
 
-console.log(getEdges([pandora, arendelle, metroville]));
+console.log(getEdges([arendelle, monstropolis, naboo]));
 
-// module.exports = getEdges;
+module.exports = getEdges;
