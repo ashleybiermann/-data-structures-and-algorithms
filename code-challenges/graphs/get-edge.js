@@ -74,8 +74,8 @@ graph.addEdge(narnia, naboo, 250);
 graph.addEdge(monstropolis, naboo, 73);
 
 
-console.log(getEdges([arendelle, monstropolis, naboo]));
+// console.log(getEdges([arendelle, monstropolis, naboo]));
 
-console.log(getEdges([arendelle, monstropolis, narnia]));
+// console.log(getEdges([arendelle, monstropolis, narnia]));
 
 module.exports = getEdges;
