@@ -68,3 +68,21 @@ Implement a breadth-first traversal on a graph.
 
 ### Solution
 ![Whiteboard](./getedgegraph.jpg)
+
+
+
+## Depth First PreOrder
+
+### Challenge 
+- Conduct a depth first preorder traversal on a graph
+- Create a function that accepts an adjacency list as a graph
+- Conducts a depth first traversal
+- Without utilizing any of the built-in methods available to your language
+- Return a collection of nodes in their pre-order depth-first traversal order
+
+### Approach & Efficiency
+- TIME complexity: 
+- SPACE complexity: 
+
+### Solution
+![Whiteboard]()

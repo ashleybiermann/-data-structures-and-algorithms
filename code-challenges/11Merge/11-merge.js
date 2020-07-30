@@ -17,7 +17,7 @@ class LinkedList {
 		let counter = 0;
 		while (current) {
 			counter++;
-			console.log(current.value);
+			// console.log(current.value);
 			current = current.next;
 		}
 		return counter;
@@ -27,7 +27,7 @@ class LinkedList {
 		const newNode = new Node(value);
 		newNode.next = this.head;
 		this.head = newNode;
-		return this;
+		return this; // this is the LinkedList
   }
   
 	append(value) {
