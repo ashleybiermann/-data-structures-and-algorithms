@@ -24,7 +24,7 @@ describe('Testing getEdges function', () => {
     graph.addEdge(narnia, naboo, 250);
     graph.addEdge(monstropolis, naboo, 73);
 
-    expect(getEdges([arendelle, monstropolis, naboo])).toEqual('True, $115');
+    expect(getEdges([arendelle, monstropolis, naboo], graph)).toEqual('True, $115');
   });
   it('Should return false if there are no direct paths between the cities', () => {
     let graph = new Graph();
@@ -46,6 +46,6 @@ describe('Testing getEdges function', () => {
     graph.addEdge(narnia, naboo, 250);
     graph.addEdge(monstropolis, naboo, 73);
     
-    expect(getEdges([arendelle, naboo, pandora])).toEqual('False, $0');
+    expect(getEdges([arendelle, naboo, pandora], graph)).toEqual('False, $0');
   });
 })

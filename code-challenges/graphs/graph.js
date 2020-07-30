@@ -29,7 +29,7 @@ class Graph {
 
   addEdge(startVertex, endVertex, weight = 0) {
     if (!this.adjacencylist.has(startVertex) || !this.adjacencylist.has(endVertex)) {
-      console.log('Invalid Vertices');
+      console.log('Invalid Vertices, cannot add edge');
     }
 
     const edges = this.adjacencylist.get(startVertex);
@@ -41,7 +41,7 @@ class Graph {
     if (!this.adjacencylist.has(vertex)) {
       console.log('Invalid Vertex');
     }
-
+    // console.log(this.adjacencylist, vertex);
     return [...this.adjacencylist.get(vertex)];
   }
 

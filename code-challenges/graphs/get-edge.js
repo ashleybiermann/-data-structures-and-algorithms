@@ -1,6 +1,6 @@
 'use strict';
 
-const Graph = require('./graph.js');
+// const Graph = require('./graph.js');
 
 // function that takes in starting node and destination(s)
 // total cost = 0
@@ -12,8 +12,7 @@ const Graph = require('./graph.js');
   // repeat on the again until all cities in input have been checked
 // return boolean, and edge weight total cost
 
-
-function getEdges (arr) {
+function getEdges (arr, inputGraph) {
   
   let totalCost = 0; // total of edges
   let flightLegs = arr.length - 1; // number of direct flights requests
@@ -29,8 +28,7 @@ function getEdges (arr) {
   function helper (startingVertex, destinationVertex) {
 
     let destinationCity = destinationVertex.value;
-  
-    let connectedCities = graph.getNeighbors(startingVertex);
+    let connectedCities = inputGraph.getNeighbors(startingVertex);
   
     for (let i = 0; i < connectedCities.length; i++) {
 
@@ -54,24 +52,24 @@ function getEdges (arr) {
 }
 
 
-let graph = new Graph();
+// let graph = new Graph();
 
-const pandora = graph.addVertex('Pandora');
-const arendelle = graph.addVertex('Arendelle');
-const monstropolis = graph.addVertex('Monstropolis');
-const naboo = graph.addVertex('Naboo');
-const narnia = graph.addVertex('Narnia');
-const metroville = graph.addVertex('Metroville');
+// const pandora = graph.addVertex('Pandora');
+// const arendelle = graph.addVertex('Arendelle');
+// const monstropolis = graph.addVertex('Monstropolis');
+// const naboo = graph.addVertex('Naboo');
+// const narnia = graph.addVertex('Narnia');
+// const metroville = graph.addVertex('Metroville');
 
-graph.addEdge(pandora, arendelle, 150);
-graph.addEdge(pandora, metroville, 82);
-graph.addEdge(arendelle, metroville, 99);
-graph.addEdge(arendelle, monstropolis, 42);
-graph.addEdge(metroville,monstropolis, 105);
-graph.addEdge(metroville, narnia, 37);
-graph.addEdge(metroville, naboo, 26);
-graph.addEdge(narnia, naboo, 250);
-graph.addEdge(monstropolis, naboo, 73);
+// graph.addEdge(pandora, arendelle, 150);
+// graph.addEdge(pandora, metroville, 82);
+// graph.addEdge(arendelle, metroville, 99);
+// graph.addEdge(arendelle, monstropolis, 42);
+// graph.addEdge(metroville,monstropolis, 105);
+// graph.addEdge(metroville, narnia, 37);
+// graph.addEdge(metroville, naboo, 26);
+// graph.addEdge(narnia, naboo, 250);
+// graph.addEdge(monstropolis, naboo, 73);
 
 
 // console.log(getEdges([arendelle, monstropolis, naboo]));
