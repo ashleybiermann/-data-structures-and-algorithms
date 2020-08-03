@@ -1,14 +1,12 @@
 # Array Binary Search
 
-##  Name of individual code challenge type ('the file')
+##  Binary Search
 
-### Challenge (what is specifically being ask, ie make a function that...)
-- 
+### Challenge 
+-Write a function called BinarySearch which takes in 2 parameters: a sorted array and the search key. Without utilizing any of the built-in methods available to your language, return the index of the array’s element that is equal to the search key, or -1 if the element does not exist. 
 
 ### Approach & Efficiency
-- O(1)? etc
-- 
-- 
+- O(1) - iterates the length of the array.
 
 ### Solution
 ![Whiteboard for...]()

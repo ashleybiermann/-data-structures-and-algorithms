@@ -9,7 +9,11 @@ function binarySearch(array, key) {
       index = i;
     }
   }
+  console.log(index);
   return index;
 }
+let arr = [1, 2, 3];
+let testK = 2;
+binarySearch(arr, testK);
 
 module.exports = binarySearch;
